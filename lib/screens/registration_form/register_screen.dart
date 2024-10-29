@@ -1,4 +1,7 @@
+import 'package:cv_mobile_app/models/register/register_request_model.dart';
 import 'package:flutter/material.dart';
+
+import 'register_success_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -268,9 +271,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 child: ElevatedButton(
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text("Form is valid"),
-                      ));
+                      RegisterRequestModel registerRequestModel =
+                          RegisterRequestModel(
+                        fullName:
+                            "${firstNameController.text} ${lastNameController.text}",
+                        email: emailController.text,
+                        phone: phoneController.text,
+                        password: passwordController.text,
+                      );
+
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => RegisterSuccessScreen(
+                            registerRequestModel: registerRequestModel,
+                          ),
+                        ),
+                      );
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                         content: Text("Please validate your fields"),
