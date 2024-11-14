@@ -1,3 +1,4 @@
+import 'package:cv_mobile_app/screens/api/api_sample_screen.dart';
 import 'package:cv_mobile_app/screens/grid/grid_screen.dart';
 import 'package:cv_mobile_app/screens/registration_form/register_screen.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +34,18 @@ class HomeScreen extends StatelessWidget {
             );
           },
           child: const Text("Grid"),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ApiSampleScren(),
+                
+              ),
+            );
+          },
+          child: const Text("Api Sample"),
         )
       ],
     );
