@@ -1,4 +1,6 @@
 import 'package:cv_mobile_app/models/login/login_response_model.dart';
+import 'package:cv_mobile_app/screens/main_screen.dart';
+import 'package:cv_mobile_app/storage/shared_preference_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -36,7 +38,14 @@ class _LoginScreenState extends State<LoginScreen> {
       Navigator.pop(context);
 
       if (response.statusCode == 200) {
-        CommonDialog().success(context, decodedJson.message.toString());
+        // CommonDialog().success(context, decodedJson.message.toString());
+        SharedPreferenceStorage.setToken(decodedJson.token.toString());
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const MainScreen(),
+          ),
+        );
       } else {
         CommonDialog().error(context, decodedJson.message.toString());
       }
