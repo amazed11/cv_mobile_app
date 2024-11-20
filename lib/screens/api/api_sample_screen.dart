@@ -37,6 +37,8 @@ class _ApiSampleScrenState extends State<ApiSampleScren> {
           data = postResponseModelFromJson(response.body);
           isLoading = false;
         });
+      } else {
+        if (response.statusCode == 401) {}
       }
     } catch (e) {
       print(e.toString());

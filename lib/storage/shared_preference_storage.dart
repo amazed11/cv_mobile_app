@@ -13,12 +13,17 @@ class SharedPreferenceStorage {
   }
 
   //token
+  static const _token = "token";
   // getter  and setter for token
-  static String? get getToken => prefs?.getString('token');
+  static String? get getToken => prefs?.getString(_token);
   // String? getToken() {
-  //   return prefs?.getString('token');
+  //   return prefs?.getString(_token);
   // }
   static setToken(String? value) {
-    prefs?.setString('token', value ?? '');
+    prefs?.setString(_token, value ?? '');
+  }
+
+  static removeToken() async {
+    await prefs?.remove(_token);
   }
 }

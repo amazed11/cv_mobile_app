@@ -1,4 +1,6 @@
+import 'package:cv_mobile_app/controller/cart_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'screens/splash_screen.dart';
 import 'storage/shared_preference_storage.dart';
@@ -6,6 +8,7 @@ import 'storage/shared_preference_storage.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SharedPreferenceStorage.init();
+  Get.put(CartController());
   runApp(const CVApp());
 }
 
@@ -14,7 +17,7 @@ class CVApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       darkTheme: ThemeData.light(),
       home: const SplashScreen(),
       debugShowCheckedModeBanner: false,
