@@ -1,5 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cv_mobile_app/controller/cart_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../state_management/cart_screen.dart';
 
 class GridScreen extends StatefulWidget {
   const GridScreen({super.key});
@@ -43,7 +47,45 @@ class _GridScreenState extends State<GridScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        actions: [
+          Stack(
+            children: [
+              IconButton(
+                onPressed: () {
+                  //naviagte to cart screen
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CartScreen(),
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.add_shopping_cart_outlined),
+              ),
+              Positioned(
+                top: 0,
+                right: 0,
+                child: CircleAvatar(
+                  backgroundColor: Colors.red,
+                  radius: 10,
+                  child: GetBuilder<CartController>(
+                    builder: (cart) {
+                      return Text(
+                        cart.carts.length.toString(),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 10,
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              )
+            ],
+          ),
+        ],
+      ),
       body: GridView.builder(
           padding: const EdgeInsets.all(20),
           itemCount: students.length,

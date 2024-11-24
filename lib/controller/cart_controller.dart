@@ -20,4 +20,39 @@ class CartController extends GetxController {
     }
     return false;
   }
+
+  //delete cart
+  void deleteCart(Cart cart) {
+    carts.remove(cart);
+    update();
+  }
+
+  dynamic getTotalPrice() {
+    var total = 0;
+    for (var element in carts) {
+      total += element.data.price ?? 0;
+      // total = total + (element.data.price ?? 0);
+    }
+    return total;
+  }
+
+  double getDiscountedPrice() {
+    double total = 0.0;
+    for (var element in carts) {
+      total += element.data.price ?? 0;
+      // total = total + (element.data.price ?? 0);
+    }
+
+    total *= 0.12;
+    return total;
+  }
+
+  double getGrandTotal() {
+    return getTotalPrice() - getDiscountedPrice();
+  }
+
+  void clearAll() {
+    carts.clear();
+    update();
+  }
 }
