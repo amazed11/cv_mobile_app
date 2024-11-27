@@ -3,6 +3,7 @@ import 'package:cv_mobile_app/screens/grid/grid_screen.dart';
 import 'package:cv_mobile_app/screens/login/login_screen.dart';
 import 'package:cv_mobile_app/screens/registration_form/register_screen.dart';
 import 'package:cv_mobile_app/screens/state_management/state_mgmt_screen.dart';
+import 'package:cv_mobile_app/screens/tap/tap_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -69,6 +70,17 @@ class HomeScreen extends StatelessWidget {
             );
           },
           child: const Text("State Management with GetX"),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const TapScreen(),
+              ),
+            );
+          },
+          child: const Text("Tap Screen"),
         ),
       ],
     );

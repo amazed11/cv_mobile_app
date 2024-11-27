@@ -1,4 +1,5 @@
 import 'package:cv_mobile_app/controller/cart_controller.dart';
+import 'package:cv_mobile_app/controller/tap_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,6 +10,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SharedPreferenceStorage.init();
   Get.put(CartController());
+  Get.put(TapController());
   runApp(const CVApp());
 }
 
