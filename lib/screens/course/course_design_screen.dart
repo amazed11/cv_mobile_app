@@ -217,8 +217,98 @@ class _CourseDesignScreenState extends State<CourseDesignScreen> {
                         ),
                       ],
                     ),
-
-                    Container()
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      width: 135,
+                      padding: const EdgeInsets.all(10),
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          stops: [0.1, 0.9],
+                          colors: [
+                            Colors.orange,
+                            Colors.orangeAccent,
+                          ],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                        ),
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(50),
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10),
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Transform.translate(
+                            offset: const Offset(-12.5, -25),
+                            child: const CircleAvatar(
+                              backgroundColor: Colors.purple,
+                              radius: 34,
+                              child: Text(
+                                "Ae",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 25,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Transform.translate(
+                            offset: const Offset(0, -19),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  "After Effects",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 17,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                const Text(
+                                  "Design,\nLearn,\nMonetize",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w200,
+                                    fontSize: 13,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    const Text(
+                                      "523 \$",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 19,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    IconButton.filledTonal(
+                                        style: IconButton.styleFrom(
+                                          elevation: 10,
+                                          shadowColor: Colors.orange,
+                                          backgroundColor: Colors.white,
+                                        ),
+                                        onPressed: () {},
+                                        icon: const Icon(
+                                            Icons.add_shopping_cart_sharp),
+                                        color: Colors.orange),
+                                  ],
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    )
                   ],
                 ),
               )
