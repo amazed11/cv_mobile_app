@@ -3,6 +3,7 @@ import 'package:cv_mobile_app/screens/api/api_sample_screen.dart';
 import 'package:cv_mobile_app/screens/course/course_design_screen.dart';
 import 'package:cv_mobile_app/screens/grid/grid_screen.dart';
 import 'package:cv_mobile_app/screens/login/login_screen.dart';
+import 'package:cv_mobile_app/screens/order/order_app_screen.dart';
 import 'package:cv_mobile_app/screens/registration_form/register_screen.dart';
 import 'package:cv_mobile_app/screens/state_management/state_mgmt_screen.dart';
 import 'package:cv_mobile_app/screens/tabbar/tabbar_screen.dart';
@@ -130,6 +131,17 @@ class HomeScreen extends StatelessWidget {
             );
           },
           child: const Text("Course Design"),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const OrderAppScreen(),
+              ),
+            );
+          },
+          child: const Text("Order App Screen"),
         ),
       ],
     );

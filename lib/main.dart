@@ -20,7 +20,8 @@ class CVApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      darkTheme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      theme: ThemeData.light(),
       home: const SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
