@@ -1,5 +1,6 @@
 import 'package:cv_mobile_app/screens/animation/animation_screen.dart';
 import 'package:cv_mobile_app/screens/api/api_sample_screen.dart';
+import 'package:cv_mobile_app/screens/background_image/background_image_screen.dart';
 import 'package:cv_mobile_app/screens/course/course_design_screen.dart';
 import 'package:cv_mobile_app/screens/grid/grid_screen.dart';
 import 'package:cv_mobile_app/screens/login/login_screen.dart';
@@ -142,6 +143,17 @@ class HomeScreen extends StatelessWidget {
             );
           },
           child: const Text("Order App Screen"),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const BackgroundImageScreen(),
+              ),
+            );
+          },
+          child: const Text("Background Image"),
         ),
       ],
     );

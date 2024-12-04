@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cv_mobile_app/screens/order/order_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -137,87 +138,101 @@ class OrderAppScreen extends StatelessWidget {
             const SizedBox(
               height: 50,
             ),
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.grey.shade800,
-                ),
-                borderRadius: BorderRadius.circular(50),
-              ),
-              child: Stack(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(50),
-                    child: ColorFiltered(
-                      colorFilter: ColorFilter.mode(
-                        Colors.black.withOpacity(0.5),
-                        BlendMode.colorBurn,
-                      ),
-                      child: CachedNetworkImage(
-                        fit: BoxFit.cover,
-                        imageUrl:
-                            "https://www.shutterstock.com/image-photo/mojito-sangria-alcoholic-cocktail-drink-600nw-2332681655.jpg",
-                      ),
-                    ),
+            GestureDetector(
+              onTap: () {
+                print("i am cl");
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const OrderDetailsScreen(),
                   ),
-
-                  //30% discount
-                  Positioned(
-                    top: 30,
-                    left: 40,
-                    child: Container(
-                      height: 50,
-                      width: 50,
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade800,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: const Center(
-                        child: Text(
-                          "30% OFF",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w700,
+                );
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.grey.shade800,
+                  ),
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: Stack(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(50),
+                      child: ColorFiltered(
+                        colorFilter: ColorFilter.mode(
+                          Colors.black.withOpacity(0.5),
+                          BlendMode.colorBurn,
+                        ),
+                        child: Hero(
+                          tag: "order_details",
+                          child: CachedNetworkImage(
+                            fit: BoxFit.cover,
+                            imageUrl:
+                                "https://www.shutterstock.com/image-photo/mojito-sangria-alcoholic-cocktail-drink-600nw-2332681655.jpg",
                           ),
                         ),
                       ),
                     ),
-                  ),
 
-                  Positioned(
-                    bottom: 30,
-                    left: 40,
-                    child: Center(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Blackberry",
+                    //30% discount
+                    Positioned(
+                      top: 30,
+                      left: 40,
+                      child: Container(
+                        height: 50,
+                        width: 50,
+                        decoration: BoxDecoration(
+                          color: Colors.grey.shade800,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            "30% OFF",
                             textAlign: TextAlign.center,
-                            style: GoogleFonts.poppins(
-                              color: Colors.white,
-                              fontSize: 25,
-                              fontWeight: FontWeight.w900,
-                              letterSpacing: 2,
-                            ),
-                          ),
-                          Text(
-                            "Very Tasty",
-                            textAlign: TextAlign.center,
-                            style: GoogleFonts.poppins(
+                            style: TextStyle(
                               color: Colors.grey,
-                              fontSize: 15,
-                              fontWeight: FontWeight.w300,
-                              letterSpacing: 2,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w700,
                             ),
                           ),
-                        ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+
+                    Positioned(
+                      bottom: 30,
+                      left: 40,
+                      child: Center(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Blackberry",
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.poppins(
+                                color: Colors.white,
+                                fontSize: 25,
+                                fontWeight: FontWeight.w900,
+                                letterSpacing: 2,
+                              ),
+                            ),
+                            Text(
+                              "Very Tasty",
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.poppins(
+                                color: Colors.grey,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w300,
+                                letterSpacing: 2,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
